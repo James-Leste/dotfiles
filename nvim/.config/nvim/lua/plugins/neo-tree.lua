@@ -22,7 +22,12 @@ return {
       window = {
         position = "left",
         width = 35,
-      }
+      },
+      filesystem = {
+        filtered_items = {
+          visible = true,
+        },
+      },
     })
     vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})
   end
