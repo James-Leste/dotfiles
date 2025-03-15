@@ -33,7 +33,8 @@ return {
                     end
                 },
                 find_files = {
-                    file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+                    find_command = {'rg', '--files', '--hidden', '-g', '!.git'},
+                    -- file_ignore_patterns = { 'node_modules', '.git', '.venv' },
                     hidden = true
                 }
 
