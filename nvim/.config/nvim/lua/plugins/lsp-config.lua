@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed =  { "lua_ls", "basedpyright", "ruff"}
+        ensure_installed =  { "lua_ls", "basedpyright", "ruff", "ts_ls"}
       })
     end
   },
@@ -22,9 +22,18 @@ return {
       { "<C-f>", vim.lsp.buf.format, desc = "Format File" },
     },
     config = function()
-      vim.diagnostic.config({
-        signs = false,
-      })
+      local diagnostics_enabled = true
+
+      local function toggle_diagnostics()
+        diagnostics_enabled = not diagnostics_enabled
+        vim.diagnostic.config({
+          signs = diagnostics_enabled,
+        })
+        print("Diagnostics signs " .. (diagnostics_enabled and "enabled" or "disabled"))
+      end
+
+      -- Bind the function to a key, for example <leader>d
+      vim.keymap.set("n", "<leader>d", toggle_diagnostics, { noremap = true, silent = true })
       vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
       local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
       local lspconfig = require("lspconfig")
@@ -50,6 +59,9 @@ return {
       })
 
       lspconfig.ruff.setup({
+      })
+
+      lspconfig.ts_ls.setup({
       })
 
     end,
