@@ -42,7 +42,7 @@ source /home/ziqiwang/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #bindkey "$terminfo[kcuu1]" history-substring-search-up
 #bindkey "$terminfo[kcud1]" history-substring-search-down
 
-PROXY_URL='http://fihel1d-proxy.emea.nsn-net.net:8080'
+#PROXY_URL='http://fihel1d-proxy.emea.nsn-net.net:8080'
 #export http_proxy="$PROXY_URL"
 
 #export https_proxy="$PROXY_URL"
