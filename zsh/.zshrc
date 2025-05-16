@@ -16,10 +16,10 @@ COLOR_CONDA='%F{45}'
 NEWLINE=$'\n'
 setopt PROMPT_SUBST
 # Set the prompt to include the user, directory, and optionally the Git branch
-export PROMPT='${COLOR_CONDA}($CONDA_DEFAULT_ENV) ${COLOR_DIR}%2d$(parse_git_branch) ${COLOR_DEF}> '
+export PROMPT='${COLOR_DIR}%2d$(parse_git_branch) ${COLOR_DEF}> '
 
 # Add a space only if the branch is not empty
-export PROMPT='${COLOR_CONDA}($CONDA_DEFAULT_ENV) ${COLOR_DIR}%2d$(if [[ -n $(parse_git_branch) ]]; then echo " ${COLOR_GIT}$(parse_git_branch)"; fi) ${COLOR_DEF}> '
+export PROMPT='${COLOR_DIR}%2d$(if [[ -n $(parse_git_branch) ]]; then echo " ${COLOR_GIT}$(parse_git_branch)"; fi) ${COLOR_DEF}> '
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
