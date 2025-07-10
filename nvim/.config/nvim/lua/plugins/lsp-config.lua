@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed =  { "lua_ls", "basedpyright", "ruff", "ts_ls", "bashls", "harper_ls", "markdown_oxide"}
+        ensure_installed =  { "lua_ls", "basedpyright", "ruff", "bashls", "harper_ls", "markdown_oxide", "ts_ls", "emmet_language_server", "superhtml", "cssls"}
       })
     end
   },
@@ -57,6 +57,7 @@ return {
           }
         }
       })
+      lspconfig.emmet_language_server.setup({})
 
       lspconfig.ruff.setup({
       })
