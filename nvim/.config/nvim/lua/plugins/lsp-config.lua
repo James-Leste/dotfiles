@@ -27,9 +27,11 @@ return {
       local function toggle_diagnostics()
         diagnostics_enabled = not diagnostics_enabled
         vim.diagnostic.config({
+          virtual_text = diagnostics_enabled,
           signs = diagnostics_enabled,
+          underline = diagnostics_enabled,
         })
-        print("Diagnostics signs " .. (diagnostics_enabled and "enabled" or "disabled"))
+        print("Diagnostics " .. (diagnostics_enabled and "enabled" or "disabled"))
       end
 
       -- Bind the function to a key, for example <leader>d
@@ -54,8 +56,26 @@ return {
         settings = {
           python = {
             pythonPath = vim.fn.exepath("python"),
-          }
-        }
+          },
+          basedpyright = {
+            disableOrganizeImports = true,
+            analysis = {
+              typeCheckingMode = "off", -- or "basic" if you want minimal typing checks
+              diagnosticSeverityOverrides = {
+                reportMissingTypeStubs = "none",
+                reportMissingParameterType = "none",
+                reportMissingTypeArgument = "none",
+                reportMissingReturnType = "none",
+                reportUnknownParameterType = "none",
+                reportUnknownArgumentType = "none",
+                reportUnknownVariableType = "none",
+                reportUnknownMemberType = "none",
+                reportUnusedImport = "none",
+                reportUnusedVariable = "none",
+              },
+            },
+          },
+        },
       })
       lspconfig.emmet_language_server.setup({})
 
