@@ -40,6 +40,7 @@ return {
         completeopt = 'menu,menuone,noinsert',
       },
       mapping = cmp.mapping.preset.insert {
+        ["<C-c>"] = cmp.mapping.abort(),
         ['<C-j>'] = cmp.mapping.select_next_item(), -- next suggestion
         ['<C-k>'] = cmp.mapping.select_prev_item(), -- previous suggestion
         ['<C-b>'] = cmp.mapping.scroll_docs(-4), -- scroll backward
