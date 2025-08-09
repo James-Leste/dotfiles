@@ -10,7 +10,7 @@ return {
     config = function()
       require("dapui").setup()
       require("dap-go").setup()
-      require("dap-python").setup("python3")
+      require("dap-python").setup("python")
 
       local dap, dapui = require("dap"), require("dapui")
 
