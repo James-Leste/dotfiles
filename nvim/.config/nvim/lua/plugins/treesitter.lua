@@ -18,6 +18,7 @@ return {
         enable = true,
         mode = 'topline',
         line_number = true,
+        separator = "─",
       })
     end
   }
