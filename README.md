@@ -1,0 +1,38 @@
+# dotfile
+
+## Neovim config
+- [x] Jetbrain style color theme `nvim/.config/nvim/lua/plugins/color-scheme.lua`
+- [x] status monitor: lualine `nvim/.config/nvim/lua/plugins/lualine.lua`
+- [x] lsp
+    - [x] python
+    - [x] lua
+    - [ ] javascript
+    - [x] typescript
+    - [ ] bash
+    - [x] html
+    - [x] css
+    - [x] markdown
+- [x] treesitter
+    - [x] python
+    - [x] javascript
+    - [ ] typescript
+    - [x] lua
+    - [x] json
+    - [x] yaml
+    - [x] bash
+    - [x] markdown
+    - [x] c
+    - [x] helm
+    - [x] gitignore
+- [x] treesitter context
+- [ ] git integration
+    - [x] git blame
+    - [x] hunk preview
+    - [x] hunk staging & reset
+    - [x] git sign
+    - [ ] git tree preview
+- [x] file tree: neo-tree
+- [x] code completion: nvim-cmp
+- [x] telescope: default
+- [x] debugger: nvim-dap, default
+- [ ]
