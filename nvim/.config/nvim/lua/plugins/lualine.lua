@@ -42,7 +42,7 @@ return {
           '%=', --[[ add your center compoentnts here in place of this comment ]]
         },
         lualine_x = {},
-        lualine_y = { 'filetype', 'encoding', 'searchcount' },
+        lualine_y = { 'progress', 'lsp_status' },
         lualine_z = {
           { 'location', left_padding = 2 },
         },
