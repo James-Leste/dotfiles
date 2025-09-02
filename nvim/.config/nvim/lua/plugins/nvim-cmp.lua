@@ -16,13 +16,13 @@ return {
 
     -- Additional user-friendly snippets
     -- https://github.com/rafamadriz/friendly-snippets
-    'rafamadriz/friendly-snippets',
+    -- 'rafamadriz/friendly-snippets',
     -- https://github.com/hrsh7th/cmp-buffer
-    'hrsh7th/cmp-buffer',
+    -- 'hrsh7th/cmp-buffer',
     -- https://github.com/hrsh7th/cmp-path
-    'hrsh7th/cmp-path',
+    -- 'hrsh7th/cmp-path',
     -- https://github.com/hrsh7th/cmp-cmdline
-    'hrsh7th/cmp-cmdline',
+    -- 'hrsh7th/cmp-cmdline',
   },
   config = function()
     local cmp = require('cmp')
@@ -74,8 +74,8 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" }, -- lsp 
         { name = "luasnip" }, -- snippets
-        { name = "buffer" }, -- text within current buffer
-        { name = "path" }, -- file system paths
+        -- { name = "buffer" }, -- text within current buffer
+        -- { name = "path" }, -- file system paths
       }),
       window = {
         -- Add borders to completions popups
