@@ -4,7 +4,7 @@ return {
     config = function()
       require("gitsigns").setup {
         current_line_blame = true,
-        current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
+        current_line_blame_formatter = '<author>, <author_time:%R>',
         current_line_blame_opts = {
           virt_text = true,
           virt_text_pos = 'right_align',
@@ -66,7 +66,7 @@ return {
           -- map('n', '<leader>hq', gitsigns.setqflist)
           --
           -- -- Toggles
-          -- map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
+          map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
           -- map('n', '<leader>tw', gitsigns.toggle_word_diff)
 
           -- Text object
