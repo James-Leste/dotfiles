@@ -1,0 +1,15 @@
+-- return {
+--   "lukas-reineke/indent-blankline.nvim",
+--   main = "ibl",
+--   event = { "BufReadPre", "BufNewFile" },
+--   opts = {
+--     indent = {
+--       char = "│",
+--       priority = 1,     -- make cursor higher priority
+--     },
+--     scope = {
+--       enabled = true,   -- highlight current scope
+--     },
+--   },
+-- }
+return {}
