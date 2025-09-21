@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed =  { "lua_ls", "basedpyright", "ruff", "bashls", "harper_ls", "markdown_oxide", "ts_ls", "emmet_language_server", "superhtml", "cssls"}
+        ensure_installed =  { "lua_ls", "basedpyright", "ruff", "bashls", "harper_ls", "markdown_oxide", "ts_ls", "emmet_language_server", "superhtml", "cssls", "gopls"}
       })
     end
   },
@@ -22,8 +22,10 @@ return {
       { "<C-f>", vim.lsp.buf.format, desc = "Format File" },
     },
     config = function()
-      local diagnostics_enabled = true
+      -- LSP config for Neovim 0.11+
 
+      -- Keymaps & diagnostics toggle
+      local diagnostics_enabled = true
       local function toggle_diagnostics()
         diagnostics_enabled = not diagnostics_enabled
         vim.diagnostic.config({
@@ -34,25 +36,37 @@ return {
         print("Diagnostics " .. (diagnostics_enabled and "enabled" or "disabled"))
       end
 
-      -- Bind the function to a key, for example <leader>d
       vim.keymap.set("n", "<leader>d", toggle_diagnostics, { noremap = true, silent = true })
       vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-      local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-      local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({
-        capabilities = lsp_capabilities,
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            }
-          }
-        }
+
+      -- Common capabilities
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+      -- Global on_attach to set up key mappings
+      local function my_on_attach(client, bufnr)
+        local opts = { noremap = true, silent = true, buffer = bufnr }
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+        vim.keymap.set("n", "<C-f>", vim.lsp.buf.format, opts)
+      end
+
+      -- Set defaults
+      vim.lsp.config("*", {
+        capabilities = capabilities,
+        on_attach = my_on_attach,
       })
 
+      -- Per-server config overrides
+      vim.lsp.config('lua_ls', {
+        settings = {
+          Lua = {
+            diagnostics = { globals = { "vim" } },
+          },
+        },
+      })
 
-      lspconfig.basedpyright.setup({
-        capabilities = lsp_capabilities,
+      vim.lsp.config('basedpyright', {
         settings = {
           python = {
             pythonPath = vim.fn.exepath("python"),
@@ -60,7 +74,7 @@ return {
           basedpyright = {
             disableOrganizeImports = true,
             analysis = {
-              typeCheckingMode = "off", -- or "basic" if you want minimal typing checks
+              typeCheckingMode = "off",
               diagnosticSeverityOverrides = {
                 reportMissingTypeStubs = "none",
                 reportMissingParameterType = "none",
@@ -77,12 +91,19 @@ return {
           },
         },
       })
-      lspconfig.emmet_language_server.setup({})
 
-      lspconfig.ruff.setup({
-      })
+      -- for servers without extra settings
+      vim.lsp.config('emmet_language_server', {})
+      vim.lsp.config('ruff', {})
+      vim.lsp.config('ts_ls', {})
 
-      lspconfig.ts_ls.setup({
+      -- Enable them
+      vim.lsp.enable({
+        'lua_ls',
+        'basedpyright',
+        'emmet_language_server',
+        'ruff',
+        'ts_ls',
       })
 
     end,
