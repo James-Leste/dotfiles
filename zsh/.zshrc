@@ -16,44 +16,17 @@ COLOR_CONDA='%F{45}'
 NEWLINE=$'\n'
 setopt PROMPT_SUBST
 # Set the prompt to include the user, directory, and optionally the Git branch
-export PROMPT='${COLOR_CONDA}($CONDA_DEFAULT_ENV) ${COLOR_DIR}%2d$(parse_git_branch) ${COLOR_DEF}> '
+export PROMPT='${COLOR_DIR}%2d$(parse_git_branch) ${COLOR_DEF}> '
 
 # Add a space only if the branch is not empty
-export PROMPT='${COLOR_CONDA}($CONDA_DEFAULT_ENV) ${COLOR_DIR}%2d$(if [[ -n $(parse_git_branch) ]]; then echo " ${COLOR_GIT}$(parse_git_branch)"; fi) ${COLOR_DEF}> '
+export PROMPT='${COLOR_DIR}%2d$(if [[ -n $(parse_git_branch) ]]; then echo " ${COLOR_GIT}$(parse_git_branch)"; fi) ${COLOR_DEF}> '
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ziqiwang/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/ziqiwang/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/ziqiwang/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/ziqiwang/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-source /home/ziqiwang/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source /home/ziqiwang/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 #bindkey "$terminfo[kcuu1]" history-substring-search-up
 #bindkey "$terminfo[kcud1]" history-substring-search-down
 
-PROXY_URL='http://fihel1d-proxy.emea.nsn-net.net:8080'
-#export http_proxy="$PROXY_URL"
-
-#export https_proxy="$PROXY_URL"
-
-#export ftp_proxy="$PROXY_URL"
-
-#export no_proxy="127.0.0.1,localhost,.nsn-rdnet.net,harbor.dev.cic.nsn-rdnet.net"
-
-export PATH=$PATH:~/.local/bin
-
-#export PATH=$PATH:~/.scripts/bin
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -86,3 +59,9 @@ if [ ! -z "$PS1" ]; then
         _tmux-init-history
     fi
 fi
+
+export PATH=$PATH:~/.local/bin
+
+APPDIR="/usr/local"
+
+export PATH=$PATH:$APPDIR/nvim-macos-arm64/bin
