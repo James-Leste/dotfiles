@@ -86,3 +86,7 @@ if [ ! -z "$PS1" ]; then
         _tmux-init-history
     fi
 fi
+
+export PATH=$PATH:/usr/local/go/bin
+
+export PATH=$PATH:/usr/local/nvim-linux-x86_64/bin
