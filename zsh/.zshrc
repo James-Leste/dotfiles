@@ -65,3 +65,5 @@ export PATH=$PATH:~/.local/bin
 APPDIR="/usr/local"
 
 export PATH=$PATH:$APPDIR/nvim-macos-arm64/bin
+
+export PATH=/opt/homebrew/bin:${PATH}
