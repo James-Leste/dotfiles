@@ -7,7 +7,7 @@ return {
         current_line_blame_formatter = '<author>, <author_time:%R>',
         current_line_blame_opts = {
           virt_text = true,
-          virt_text_pos = 'right_align',
+          virt_text_pos = 'eol',  -- Place at end of line instead of right_align
           delay = 0,
           ignore_whitespace = false,
           virt_text_priority = 100,
