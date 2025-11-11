@@ -41,15 +41,20 @@ source /home/ziqiwang/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #bindkey "$terminfo[kcuu1]" history-substring-search-up
 #bindkey "$terminfo[kcud1]" history-substring-search-down
+export PROFILE=/usr/bin/zsh
 
-#PROXY_URL='http://fihel1d-proxy.emea.nsn-net.net:8080'
-#export http_proxy="$PROXY_URL"
+export PROXY_URL='http://fihel1d-proxy.emea.nsn-net.net:8080'
 
-#export https_proxy="$PROXY_URL"
+export http_proxy=$PROXY_URL
+export HTTP_PROXY=$PROXY_URL
+export https_proxy=$PROXY_URL
+export HTTPS_PROXY=$PROXY_URL
+export ftp_proxy=$PROXY_URL
+export FTP_PROXY=$PROXY_URL
 
-#export ftp_proxy="$PROXY_URL"
+export no_proxy="localhost,127.0.0.1,instance-data,169.254.169.254,10.135.73.50,.nokia.net,.nsn-net.net,.nsn-rdnet.net,.nokia.com,.nsn.com,.nokiasiemensnetworks.com,.alcatel-lucent.com,.internal,.testing,315829634537.dkr.ecr.eu-central-1.amazonaws.com,docker:2375,docker:2376"
 
-#export no_proxy="127.0.0.1,localhost,.nsn-rdnet.net,harbor.dev.cic.nsn-rdnet.net"
+export NODE_USE_ENV_PROXY=1
 
 export PATH=$PATH:~/.local/bin
 
@@ -90,3 +95,9 @@ fi
 export PATH=$PATH:/usr/local/go/bin
 
 export PATH=$PATH:/usr/local/nvim-linux-x86_64/bin
+
+### nvm installation result ###
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+### nvm installation result ###
