@@ -115,3 +115,16 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+PROXY_URL='http://fihel1d-proxy.emea.nsn-net.net:8080'
+
+export http_proxy="$PROXY_URL"
+
+export HTTP_PROXY="$PROXY_URL"
+
+export https_proxy="$PROXY_URL"
+
+export ftp_proxy="$PROXY_URL"
+
+export no_proxy="localhost,127.0.0.1,instance-data,169.254.169.254,10.135.73.50,.nokia.net,.nsn-net.net,.nsn-rdnet.net,.nokia.com,.nsn.com,.nokiasiemensnetworks.com,.alcatel-lucent.com,.internal,.testing,315829634537.dkr.ecr.eu-central-1.amazonaws.com,docker:2375,docker:2376"
+
