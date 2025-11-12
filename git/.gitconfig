@@ -14,3 +14,5 @@
 	editor = nvim
 [https]
 	proxy = http://defra1c-proxy.emea.nsn-net.net:8080
+[push]
+	autosetupremote = true
