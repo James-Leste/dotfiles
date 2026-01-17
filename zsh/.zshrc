@@ -71,3 +71,5 @@ export PATH=/opt/homebrew/bin:${PATH}
 export PATH=/usr/local/lua-5.4.8:${PATH}
 eval "$(rbenv init - zsh)"
 export PATH="$HOME/.rbenv/bin:$PATH"
+
+autoload -U compinit; compinit
