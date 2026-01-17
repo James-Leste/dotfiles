@@ -12,7 +12,7 @@ return {
         { "<leader>fb", '<cmd>Telescope buffers<cr>',                   desc = "Buffers", },
         { "<leader>fc", '<cmd>Telescope git_commits<cr>',               desc = "Commits", },
         { "<leader>ff", '<cmd>Telescope find_files<cr>',                desc = "Find All Files", },
-        { "<C-p>",      '<cmd>Telescope git_files<cr>',                 desc = "Git files", },
+        { "<leader>gf",      '<cmd>Telescope git_files<cr>',                 desc = "Git files", },
         { "<leader>fh", '<cmd>Telescope help_tags<cr>',                 desc = "Help", },
         { "<leader>fj", '<cmd>Telescope command_history<cr>',           desc = "History", },
         { "<leader>fk", '<cmd>Telescope keymaps<cr>',                   desc = "Keymaps", },
