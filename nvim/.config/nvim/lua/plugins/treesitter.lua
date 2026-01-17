@@ -31,5 +31,6 @@ return {
         on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
       })
     end
-  }
+  },
+  { "qvalentin/helm-ls.nvim", ft = "helm" }
 }
