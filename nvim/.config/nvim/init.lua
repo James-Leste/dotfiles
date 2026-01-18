@@ -9,6 +9,15 @@ vim.o.expandtab = true
 vim.o.tabstop = 8
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+    vim.opt_local.expandtab = false -- Use real tabs (Go standard)
+    vim.opt_local.tabstop = 4       -- Visual width of the tab is 4 spaces
+    vim.opt_local.shiftwidth = 4    -- Indentation operations (>> and <<) use 4 width
+  end,
+})
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
 
