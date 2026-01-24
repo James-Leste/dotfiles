@@ -1,3 +1,14 @@
+vim.o.textwidth = 80
+vim.o.formatoptions = cqtmB
+vim.o.wrapmargin = 0
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "text" },
+  callback = function()
+    vim.opt_local.textwidth = 80
+    vim.opt_local.formatoptions:append("mB")
+  end,
+})
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
