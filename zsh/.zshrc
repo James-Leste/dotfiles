@@ -9,8 +9,8 @@ parse_git_branch() {
 }
 COLOR_DEF='%f'
 COLOR_USR='%F{42}'
-COLOR_DIR='%F{40}'
-COLOR_GIT='%F{2}'
+COLOR_DIR='%F{039}'
+COLOR_GIT='%F{249}'
 COLOR_CONDA='%F{45}'
 
 NEWLINE=$'\n'
@@ -38,6 +38,8 @@ unset __conda_setup
 
 source /home/ziqiwang/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source /home/ziqiwang/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+KEYTIMEOUT=1
 
 #bindkey "$terminfo[kcuu1]" history-substring-search-up
 #bindkey "$terminfo[kcud1]" history-substring-search-down
