@@ -7,8 +7,15 @@ return {
   },
   opts = {
     outline_window = {
-      width = 15,
+      width = 30,
       relative_width = true,
+      auto_width = {
+        enable = true,
+        max_width = 40,
+        include_symbol_details = false,
+      },
+      auto_jump = true,
+      wrap = true,
     }    -- Your setup opts here
   },
 }
