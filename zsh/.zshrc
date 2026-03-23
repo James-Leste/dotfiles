@@ -105,3 +105,5 @@ export NVM_DIR="$HOME/.nvm"
 ### nvm installation result ###
 
 autoload -U compinit; compinit
+
+alias oc='kubectl'
