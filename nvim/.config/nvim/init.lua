@@ -3,7 +3,7 @@ vim.o.formatoptions = cqtmB
 vim.o.wrapmargin = 0
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown", "text" },
+  pattern = { "markdown" },
   callback = function()
     vim.opt_local.textwidth = 80
     vim.opt_local.formatoptions:append("mB")
