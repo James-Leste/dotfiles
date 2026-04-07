@@ -20,6 +20,16 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.shiftwidth = 4    -- Indentation operations (>> and <<) use 4 width
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.o.expandtab = false
+    vim.o.tabstop = 8
+    vim.o.softtabstop = 2
+    vim.o.shiftwidth = 2
+  end,
+})
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
 
